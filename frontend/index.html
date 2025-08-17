@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite-Demo - Nail Biting Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bite-Demo</h1>
+            <p>AI-powered nail biting detection</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <img src="images/upload-icon.svg" alt="Upload" id="uploadIcon">
+                        <p>Click to upload an image or drag and drop</p>
+                        <p class="file-types">Supported: JPG, PNG, JPEG</p>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <h3>Image Preview</h3>
+                <div class="image-preview">
+                    <img id="previewImage" alt="Preview">
+                </div>
+                <button id="analyzeBtn" class="analyze-btn">Analyze Image</button>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <h3>Analysis Result</h3>
+                <div class="result-card">
+                    <div class="result-icon" id="resultIcon"></div>
+                    <div class="result-text">
+                        <h4 id="resultTitle"></h4>
+                        <p id="resultDescription"></p>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                        <p class="confidence-text">Confidence: <span id="confidenceValue"></span>%</p>
+                    </div>
+                </div>
+                <button id="newImageBtn" class="new-image-btn">Analyze New Image</button>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing image...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Bite-Demo. Built with AI and ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
