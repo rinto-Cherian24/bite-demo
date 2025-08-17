@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 import os
 import cv2
@@ -7,7 +7,7 @@ from PIL import Image
 import io
 import base64
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../frontend', template_folder='../frontend')
 CORS(app)
 
 # Global variable to store the model
@@ -31,6 +31,11 @@ def load_model():
 def index():
     """Serve the main page"""
     return render_template('index.html')
+
+@app.route('/<path:filename>')
+def serve_static(filename):
+    """Serve static files"""
+    return send_from_directory(app.static_folder, filename)
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
@@ -87,4 +92,5 @@ def health():
 
 if __name__ == '__main__':
     load_model()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
