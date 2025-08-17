@@ -7,7 +7,7 @@ setup(
     install_requires=[
         "Flask==2.3.3",
         "opencv-python==4.8.1.78",
-        "tensorflow==2.13.0",
+        "tensorflow==2.20.0",
         "numpy==1.24.3",
         "Pillow==10.0.0",
         "gunicorn==21.2.0",
