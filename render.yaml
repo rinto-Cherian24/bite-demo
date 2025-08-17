@@ -2,7 +2,7 @@ services:
   - type: web
     name: bite-demo
     env: python
-    buildCommand: pip install -r requirements-minimal.txt
+    buildCommand: pip install -r requirements-simple.txt
     startCommand: gunicorn backend.app:app
     envVars:
       - key: PYTHON_VERSION
